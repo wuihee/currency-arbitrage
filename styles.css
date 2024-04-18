@@ -18,6 +18,11 @@ article {
   margin-bottom: 30px;
 }
 
+a {
+  color: black;
+  text-decoration: underline;
+}
+
 button,
 select,
 input {
