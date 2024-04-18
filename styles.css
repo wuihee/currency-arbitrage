@@ -8,6 +8,12 @@ body {
   padding: 2%;
 }
 
+@media (max-width: 950px) {
+  body {
+    width: 80%;
+  }
+}
+
 article {
   margin-bottom: 30px;
 }
