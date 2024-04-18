@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;1,300&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="index.js"></script>
+  <title>CP2</title>
+</head>
+<body>
+
+  <header>
+    <h1>Currency Arbitrage Simulator</h1>
+  </header>
+
+  <article>
+    <h2>Introduction</h2>
+    <h3>What is Currency Arbitrage?</h3>
+    <p>
+      Currency arbitrage is a financial strategy that exploits differences in currency exchange
+      rates in various markets to make a profit. It involves buying a currency in one market at
+      a lower rate and simultaneously selling it in another market at a higher rate. This
+      discrepancy in exchange rates can occur due to differences in market efficiencies, timing
+      delays between market updates, or variations in supply and demand across different
+      geographical locations.
+    </p>
+    <h3>How Does it Work?</h3>
+    <p>
+      Interestingly, Bellman-Ford's single-source shortest path algorithm can be used to detect
+      artbitrage. Each currency represents a node in a directed graph, and the exchange rates are
+      the weights of the graph. However, instead of using the pure exchange rates, we take the
+      negative logrithm as the weights. Essentially, an arbitrage occurs when the product of a
+      cycle of currencies ends up being more than 1. And since Bellman-Ford is adept at finding
+      negative-weight cycles, a negative-weight cycle in this case would indicate that there exists
+      a cycle of currencies whose product is greater than one, thereby indicating an arbitrage.
+    </p>
+  </article>
+
+  <article>
+    <h2>Simulator</h2>
+    <p>
+      Initially, I wanted to create this project using real-time curency data. However, I quickly
+      realized that all the available APIs needed a subscription. So I just created a simulator
+      where you can enter in currency pairs and the website will let you know if you have a
+      currency arbitrage.
+    </p>
+    <p>
+      Try entering in USD/GBP = 0.9 and GPD/USD = 1.3. You will find that this result gives you an
+      arbitrage because if you start with USD$1 to GBP$0.9 back to USD$1.17, you will have made
+      17 cents for free!
+    </p>
+    <section>
+      <h3>Add Currency Pair</h3>
+      <select name="currency-menu-1" id="currency-menu-1"></select>
+      <select name="currency-menu-2" id="currency-menu-2"></select>
+      <input type="text" id="exchange-input">
+      <button id="currency-button">Add</button>
+      <button id="clear-button">Clear</button>
+    </section>
+
+    <h3>Current Exchange Rates</h3>
+    <p id="status">No arbitrage found.</p>
+    <p id="message"></p>
+    <section id="exchange-display"></section>
+
+  </article>
+
+  <footer>
+    <h2>Possible Next Steps...</h2>
+    <ul>
+      <li>
+        Find a better way to represent the Bellman-Ford graph that doesn't require looping through
+        every currency pair.
+      </li>
+      <li>
+        Use an API to retrieve real-time data.
+      </li>
+      <li>
+        Automate the trading process and make money.
+      </li>
+    </ul>
+  </footer>
+</body>
+</html>
